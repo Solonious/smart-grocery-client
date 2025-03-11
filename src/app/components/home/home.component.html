@@ -1,0 +1,16 @@
+<h1>:shopping_trolley: Smart Grocery List</h1>
+
+  <input [(ngModel)]="query" placeholder="Введіть назву товару..." />
+
+  <button (click)="search()">:mag: Пошук</button>
+  <div *ngIf="(products$ | async)?.length">
+    <h2>Результати пошуку</h2>
+    <div class="product-list">
+      <div *ngFor="let product of products$ | async" class="product-card">
+        <img [src]="product.image" alt="{{ product.name }}" />
+        <h3>{{ product.name }}</h3>
+        <p>Ціна: {{ product.price }} ₴</p>
+        <p>Магазин: {{ product.store }}</p>
+      </div>
+    </div>
+  </div>
