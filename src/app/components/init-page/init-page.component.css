@@ -1,0 +1,61 @@
+/* login.component.css */
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--ion-color-dark);
+}
+
+.social-login {
+    margin-top: 24px;
+}
+
+.social-login p {
+    margin-bottom: 16px;
+    color: var(--ion-color-medium);
+}
+
+.social-login .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-login .social-buttons ion-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
+.social-login .social-buttons ion-button ion-icon {
+    font-size: 24px;
+}
+
+.signup-prompt {
+    margin-top: 32px;
+}
+
+.signup-prompt p {
+    color: var(--ion-color-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* iOS specific styling */
+:host-context(.ios) ion-item {
+    --highlight-height: 0;
+    --border-width: 0 0 1px 0;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+:host-context(.ios) ion-button {
+    --box-shadow: none;
+}

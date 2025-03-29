@@ -4,7 +4,7 @@
     <h1 class="ion-text-center">Smart Grocery</h1>
     <p class="ion-text-center ion-padding-bottom">Sign in to continue</p>
 
-    <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
+    <form [formGroup]="signUpFrom" (ngSubmit)="submitForm()" novalidate>
       <ion-list lines="full" class="ion-no-margin">
         <ion-item>
           <ion-label position="floating">Email</ion-label>
@@ -46,7 +46,7 @@
         color="primary" 
         type="submit" 
         class="ion-margin-top"
-        [disabled]="!loginForm.valid">
+        [disabled]="!signUpFrom.valid">
         Sign In
       </ion-button>
     </form>

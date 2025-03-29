@@ -1,0 +1,82 @@
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.logo-container ion-img {
+    width: 120px;
+    height: 120px;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--ion-color-dark);
+}
+
+.error-message {
+    color: var(--ion-color-danger);
+    font-size: 14px;
+    margin-left: 16px;
+    margin-top: 5px;
+}
+
+.password-toggle {
+    font-size: 20px;
+    align-self: flex-end;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remember-forgot ion-item {
+    --inner-padding-end: 0;
+    --background: transparent;
+}
+
+.social-login p {
+    margin-bottom: 16px;
+    color: var(--ion-color-medium);
+}
+
+.social-login .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-login .social-buttons ion-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
+.social-login .social-buttons ion-button ion-icon {
+    font-size: 24px;
+}
+
+/* iOS specific styling */
+:host-context(.ios) ion-item {
+    --highlight-height: 0;
+    --border-width: 0 0 1px 0;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+:host-context(.ios) ion-button {
+    --box-shadow: none;
+}

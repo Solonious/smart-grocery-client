@@ -1,7 +1,0 @@
-<h2>:key: Вхід до системи</h2>
-    <input [(ngModel)]="name" placeholder="Email" required />
-  <input [(ngModel)]="email" placeholder="Email" required />
-  <input [(ngModel)]="password" type="password" placeholder="Пароль" required />
-  <button (click)="registerUser()">Увійти</button>
-<p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-<p>Немає акаунта? <a routerLink="/register">Зареєструватися</a></p>

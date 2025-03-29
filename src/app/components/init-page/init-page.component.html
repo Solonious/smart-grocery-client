@@ -1,0 +1,85 @@
+<ion-content class="ion-padding">
+    
+    <ion-content class="ion-padding">
+        <div class="login-container">
+          
+          <h1 class="ion-text-center">Smart Grocery</h1>
+          <p class="ion-text-center ion-padding-bottom">Sign in to continue</p>
+      
+            <ion-button
+            id="openLoginModal"
+              expand="block" 
+              shape="round" 
+              color="primary" 
+              type="submit" 
+              class="ion-margin-top">
+              Sign In
+            </ion-button>
+      
+            <div class="ion-text-center ion-padding-top social-login">
+              <p>Or sign in with</p>
+              <div class="social-buttons">
+                <ion-button fill="clear">
+                  <ion-icon name="logo-apple" slot="icon-only"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear">
+                  <ion-icon name="logo-google" slot="icon-only"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear">
+                  <ion-icon name="logo-facebook" slot="icon-only"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+      
+            <div class="ion-text-center ion-padding-top signup-prompt">
+              <p>Don't have an account? 
+                <ion-button fill="clear" size="small" id="openSignInModal">
+                  Sign Up
+                </ion-button>
+              </p>
+            </div>
+        </div>
+      </ion-content>
+
+
+    <ion-modal #loginModal trigger="openLoginModal" (willPresent)="onLoginClick()">
+      <ng-template>
+        <ion-header>
+            <ion-toolbar>
+                <ion-title></ion-title>
+             </ion-toolbar>
+
+              <ion-toolbar>
+                <ion-title>Sign In</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="loginModal.dismiss()"> Close </ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+          <ion-nav #nav></ion-nav>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <ion-modal #signInModal trigger="openSignInModal" (willPresent)="onSignInClick()">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+                <ion-title></ion-title>
+             </ion-toolbar>
+
+            <ion-toolbar>
+              <ion-title>Sign Up</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="signInModal.dismiss()"> Close </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <ion-nav #nav></ion-nav>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+  </ion-content>
