@@ -1,20 +1,36 @@
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component, inject } from '@angular/core';
+import {
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonTab,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonTitle,
+  IonToolbar, IonButton } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { library, playCircle, radio, search } from 'ionicons/icons';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [IonicModule],
-  template: `
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Ionic + Angular 19</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  imports: [IonButton, IonContent, IonHeader, IonIcon, IonTab, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar],
+  templateUrl: './home.component.html',})
+export class HomeComponent {
 
-    <ion-content class="ion-padding">
-      <ion-button expand="block">Click me</ion-button>
-    </ion-content>
-  `
-})
-export class HomeComponent {}
+  authService = inject(AuthService);
+
+  constructor() {
+    addIcons({ library, playCircle, radio, search });
+  }
+
+  signOut(): void { 
+    // Handle sign out logic
+    console.log('Sign out clicked');
+
+    this.authService.logout();
+  }
+}

@@ -1,31 +1,35 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { LoginComponent } from '../login/login.component';
-import { IonNav, IonContent, IonButton, IonModal, IonHeader, IonToolbar, IonTitle, IonButtons, IonIcon } from "@ionic/angular/standalone";
-import { SignUpComponent } from '../sign-up/sign-up.component';
+import { IonContent, IonButton, IonIcon } from "@ionic/angular/standalone";
 import { addIcons } from 'ionicons';
 import { logoFacebook, logoApple, logoGoogle} from 'ionicons/icons';
 
 @Component({
   selector: 'app-init-page',
   standalone: true,
-  imports: [IonIcon, IonButtons, IonTitle, IonToolbar, IonHeader, IonModal, IonButton, IonContent, IonNav],
+  imports: [IonIcon, IonButton, IonContent],
   templateUrl: './init-page.component.html',
   styleUrls: ['./init-page.component.css'],
 })
 export class InitPageComponent {
-  @ViewChild('nav') private nav!: IonNav;
+
+  private router = inject(Router);
 
   constructor() {
     addIcons({ logoFacebook, logoApple, logoGoogle });
   }
 
-  onLoginClick() {
-    this.nav.setRoot(LoginComponent);
+  navigateToSignIn() {
+    console.log('Sign in clicked');
+    this.router.navigate(['/login']);
   }
 
-  onSignInClick(): void {
-    console.log('Sign Up button clicked');
-    this.nav.setRoot(SignUpComponent);
+  navigateToSignUp() {
+    this.router.navigate(['/sign-up']);
   }
+
+  
+
+
 }

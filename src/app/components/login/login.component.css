@@ -7,18 +7,6 @@
     flex-direction: column;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
-}
-
-.logo-container ion-img {
-    width: 120px;
-    height: 120px;
-}
-
 h1 {
     margin-bottom: 8px;
     font-weight: 700;

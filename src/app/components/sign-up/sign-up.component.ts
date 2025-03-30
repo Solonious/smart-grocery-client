@@ -3,15 +3,26 @@ import { CommonModule } from '@angular/common';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { Subject, take, takeUntil } from 'rxjs';
-import { IonContent, IonList, IonItem, IonLabel, IonIcon, IonButton, IonInput } from "@ionic/angular/standalone";
+import { Subject, takeUntil } from 'rxjs';
+import { IonContent, IonList, IonItem, IonLabel, IonIcon, IonButton, IonInput, IonBackButton } from "@ionic/angular/standalone";
 import { addIcons } from 'ionicons';
 import { eyeOff } from 'ionicons/icons';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [IonButton, IonIcon, IonLabel, IonItem, IonList, IonInput, IonContent, CommonModule, ReactiveFormsModule],
+  imports: [
+    IonBackButton,
+    IonButton,
+    IonIcon,
+    IonLabel,
+    IonItem,
+    IonList,
+    IonInput,
+    IonContent,
+    CommonModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -24,6 +35,7 @@ export class SignUpComponent implements OnDestroy {
   private auth = inject(AuthService);
 
   signUpFrom: FormGroup = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
@@ -45,6 +57,11 @@ export class SignUpComponent implements OnDestroy {
   }
 
   submitForm(): void {
+    const { name, email, password } = this.signUpFrom.value;
+
+    this.auth.register(name, email, password).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe();
   }
 
   forgotPassword() {
@@ -63,11 +80,5 @@ export class SignUpComponent implements OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
-  }
-
-  registerUser() {
-    // this.auth.register(this.name, this.email, this.password).pipe(
-    //     takeUntil(this.destroy$)
-    // ).subscribe();
   }
 }
