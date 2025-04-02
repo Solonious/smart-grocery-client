@@ -9,11 +9,12 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
   
     return next(req).pipe(
       catchError((error: HttpErrorResponse) => {
+        const toastPosition = 'bottom'; // Default position, can be adjusted based on UX guidelines
         toastController.create({
           message: error.error?.message || 'Something went wrong.',
           duration: 3000,
           color: 'danger',
-          position: 'middle'
+          position: toastPosition,
         }).then(toast => toast.present());
   
         return throwError(() => error);
