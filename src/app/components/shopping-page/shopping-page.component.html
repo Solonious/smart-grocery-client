@@ -1,0 +1,16 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/select-store"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Products</ion-title>
+      <ion-button shape="round"  slot="end">
+        <ion-icon name="cart-outline" slot="icon-only"></ion-icon>
+        <ion-badge color="danger" (click)="onCardClick()">{{ cardItemsLength() }}</ion-badge>
+    </ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <router-outlet></router-outlet>
+  </ion-content>

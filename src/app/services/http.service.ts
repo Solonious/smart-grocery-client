@@ -41,4 +41,24 @@ export class HttpService {
                 return [];
             }));
     }
+
+    getProducts(): Observable<Product[]> {
+        return this.http.get<Product[]>(`${apiProfuctsUrl}/products`).pipe(
+            map((data) => data),
+            catchError((error) => {
+                console.error('Error:', error);
+                return [];
+            })
+        );
+    }
+
+    getProductById(id: string): Observable<Product> {
+        return this.http.get<Product>(`${apiProfuctsUrl}/${id}`).pipe(
+            map((data) => data),
+            catchError((error) => {
+                console.error('Error:', error);
+                return [];
+            })
+        );
+    }
 }

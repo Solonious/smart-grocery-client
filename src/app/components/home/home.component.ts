@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   IonTabBar,
   IonTabButton,
@@ -19,7 +19,7 @@ import { AuthService } from '../../services/auth.service';
 export class HomeComponent {
 
   constructor(private authService: AuthService) {
-    addIcons({search, cogOutline, statsChartOutline });
+    addIcons({search, cogOutline, statsChartOutline});
   }
 
   signOut(): void {

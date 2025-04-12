@@ -12,8 +12,8 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             {
-              path: 'search',
-              loadComponent: () => import('./components/search-page/search-page.component').then((m) => m.SearchPageComponent),
+              path: 'shopping',
+              loadChildren: () => import('./components/shopping-page/shopping-page.routes').then((m) => m.SHOPPING_ROUTES),
             },
             {
               path: 'dashboard',
@@ -25,7 +25,7 @@ export const routes: Routes = [
             },
             {
               path: '',
-              redirectTo: 'search',
+              redirectTo: 'shopping',
               pathMatch: 'full',
             },
           ],

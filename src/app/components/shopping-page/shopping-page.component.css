@@ -1,0 +1,99 @@
+/* iOS-specific styling */
+:host-context(.ios) {
+    ion-searchbar {
+      --border-radius: 10px;
+      --box-shadow: none;
+      --cancel-button-color: var(--ion-color-primary);
+      --clear-button-color: var(--ion-color-medium);
+      --icon-color: var(--ion-color-medium);
+      --placeholder-color: var(--ion-color-medium);
+      padding: 0 8px;
+      height: 44px;
+    }
+    
+    ion-card {
+      border-radius: 13px;
+      margin: 8px 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+    
+    ion-card-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    ion-card-content {
+      padding-top: 0;
+    }
+  }
+  
+  .product-card {
+    margin: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    ion-img {
+      height: 150px;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .product-name {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.2;
+      max-height: 2.4em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    
+    .product-price {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ion-color-primary);
+      margin-top: 4px;
+    }
+    
+    .product-description {
+      font-size: 12px;
+      color: var(--ion-color-medium);
+      max-height: 3.6em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+  
+  .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    
+    ion-icon {
+      font-size: 48px;
+      color: var(--ion-color-medium);
+      margin-bottom: 16px;
+    }
+    
+    p {
+      color: var(--ion-color-medium);
+      font-size: 16px;
+    }
+  }
+  
+  /* Grid adjustments for different screen sizes */
+  @media (min-width: 576px) {
+    ion-col {
+      --ion-grid-column-padding: 10px;
+    }
+  }
