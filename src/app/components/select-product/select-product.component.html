@@ -1,6 +1,4 @@
-
-
-  <ion-header class="ion-no-border">
+<ion-header class="ion-no-border">
     <ion-toolbar>
       @if (isLoading) {
         <ion-progress-bar type="indeterminate"></ion-progress-bar>
@@ -34,7 +32,7 @@
             (click)="setActiveProductId(product.id)"
             class="product-card"
             [class.added-to-card]="isProductInCart(product.id)"
-            [class.selected]="product.id === activeProductId()">
+            [class.selected]="product.id === selectedProductId()">
             
             <ion-img [src]="product.image" alt="{{ product.name }}"></ion-img>
   
@@ -51,36 +49,39 @@
               {{ product.description }}
             </ion-card-content>
   
-            @if (product.id === activeProductId()) {
+            @if (product.id === selectedProductId()) {
                 <ion-footer class="product-actions">
+                    @if (!isProductInCart(product.id)) {
+                        <div class="quantity-controls">
+                            <ion-button 
+                                fill="clear" 
+                                size="small" 
+                                (click)="updateSelectedQuantity(-1, $event)" 
+                                [disabled]="getSelectedQuantity() <= 1">
+                                <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+                            </ion-button>
 
-                    @if(!isProductInCart(product.id)) {
-                        <span>{{quantity()}}</span>
-    
-                        <ion-button 
-                        fill="clear" 
-                        size="small" 
-                        (click)="decrease($event)" 
-                        [disabled]="false">
-                        <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
-                      </ion-button>
-          
-                      <ion-button 
-                        fill="clear" 
-                        size="small" 
-                        (click)="increase($event)">
-                        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
-                      </ion-button>
+                            <span>{{ getSelectedQuantity() }}</span>
+
+                            <ion-button 
+                                fill="clear" 
+                                size="small" 
+                                (click)="updateSelectedQuantity(1, $event)">
+                                <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+                            </ion-button>
+                        </div>
                     }
-      
-                  <ion-button 
-                    fill="solid" 
-                    size="small" 
-                    color="primary"
-                    (click)="toggleCart(product)">
-                    <ion-icon slot="start" name="cart-outline"></ion-icon>
-                    {{ getSelectedProductId(product.id) === product.id ? 'Remove' : 'Add' }}
-                  </ion-button>
+
+                    <div class="action-button-wrapper">
+                        <ion-button 
+                            fill="solid" 
+                            size="small" 
+                            color="primary"
+                            (click)="toggleCart(product); $event.stopPropagation()">
+                            <ion-icon slot="start" name="cart-outline"></ion-icon>
+                            {{ isProductInCart(product.id) ? 'Remove' : 'Add' }}
+                        </ion-button>
+                    </div>
                 </ion-footer>
             }
             
@@ -89,4 +90,4 @@
       </ion-row>
     </ion-grid>
   </ion-content>
-  
+

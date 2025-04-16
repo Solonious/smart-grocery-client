@@ -1,48 +1,16 @@
-/* .container {
-    text-align: center;
-    max-width: 600px;
-    margin: auto;
-  }
-  input {
-    padding: 10px;
-    width: 70%;
-    margin-right: 5px;
-  }
-  button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .product-card {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    text-align: center;
-  }
-  .product-card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  } */
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  :host {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+ion-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
-  ion-tabs {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  ion-router-outlet {
-    flex: 1;
-    display: block;
-  }
+ion-router-outlet {
+  flex: 1;
+  display: block;
+}

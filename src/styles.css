@@ -68,5 +68,169 @@
     flex: 1;
     height: 100% !important;
   }
-  
-  
+
+  /* Common iOS-specific styles */
+  :host-context(.ios) {
+    ion-searchbar {
+      --border-radius: 10px;
+      --box-shadow: none;
+      --cancel-button-color: var(--ion-color-primary);
+      --clear-button-color: var(--ion-color-medium);
+      --icon-color: var(--ion-color-medium);
+      --placeholder-color: var(--ion-color-medium);
+      padding: 0 8px;
+      height: 44px;
+    }
+    
+    ion-card {
+      border-radius: 13px;
+      margin: 8px 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+    
+    ion-card-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    ion-card-content {
+      padding-top: 0;
+    }
+
+    ion-item {
+      --highlight-height: 0;
+      --border-width: 0 0 1px 0;
+      --border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    ion-button {
+      --box-shadow: none;
+    }
+  }
+
+  /* Shared authentication styles */
+  .login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error-message {
+    color: var(--ion-color-danger);
+    font-size: 14px;
+    margin-left: 16px;
+    margin-top: 5px;
+  }
+
+  .social-login {
+    margin-top: 24px;
+  }
+
+  .social-login p {
+    margin-bottom: 16px;
+    color: var(--ion-color-medium);
+  }
+
+  .social-login .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .social-login .social-buttons ion-button {
+    --padding-start: 12px;
+    --padding-end: 12px;
+  }
+
+  .social-login .social-buttons ion-button ion-icon {
+    font-size: 24px;
+  }
+
+  .password-toggle {
+    font-size: 20px;
+    align-self: flex-end;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .remember-forgot ion-item {
+    --inner-padding-end: 0;
+    --background: transparent;
+  }
+
+  /* End shared authentication styles */
+
+  /* Shared product card styles */
+  .product-card {
+    margin: 8px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    
+    ion-img {
+      height: 150px;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .product-name {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.2;
+      max-height: 2.4em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    
+    .product-price {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ion-color-primary);
+      margin-top: 4px;
+    }
+  }
+
+  .product-card.selected {
+    border: 2px solid var(--ion-color-success);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+  }
+
+  .product-card.added-to-card {
+    border: 2px solid var(--ion-color-warning);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+  }
+
+  .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    
+    ion-icon {
+      font-size: 48px;
+      color: var(--ion-color-medium);
+      margin-bottom: 16px;
+    }
+    
+    p {
+      color: var(--ion-color-medium);
+      font-size: 16px;
+    }
+  }
+
+  /* End shared product card styles */
+

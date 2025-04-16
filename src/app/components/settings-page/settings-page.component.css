@@ -1,9 +1,9 @@
 :host {
-    display: block;
-    height: 100%;
-  }
+  display: block;
+  height: 100%;
+}
 
-  .tab-content {
-    display: block;
-    height: 100%;
-  }
+.tab-content {
+  display: block;
+  height: 100%;
+}

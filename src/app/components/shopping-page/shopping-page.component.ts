@@ -6,10 +6,10 @@ import { cartOutline } from 'ionicons/icons';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ShoppingPageService } from './shopping-page.service';
-import { CardService } from '../../services/card/card.service';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
-  selector: 'app-search-page',
+  selector: 'app-shopping-page',
   imports: [IonButton, IonBadge, IonIcon, IonBackButton, IonButtons, 
     IonContent, 
     IonTitle,
@@ -24,16 +24,15 @@ import { CardService } from '../../services/card/card.service';
   styleUrl: './shopping-page.component.css'
 })
 export class ShoppingPageComponent {
-
-  cardService = inject(CardService);
-
-  cardItemsLength = this.cardService.cardItemsLength;
+  productService = inject(ProductService);
+  cartItemsCount = this.productService.cartItemsCount;
+  cartProducts = this.productService.cartProducts;
 
   constructor() {
     addIcons({ cartOutline });
   }
 
-  onCardClick() {
-    this.cardService.getSelectedCardItems();
+  onCartClick() {
+    console.log('Cart products:', this.cartProducts());
   }
 }

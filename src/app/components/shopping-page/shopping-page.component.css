@@ -91,7 +91,7 @@
     }
   }
   
-  /* Grid adjustments for different screen sizes */
+  /* Component-specific styles */
   @media (min-width: 576px) {
     ion-col {
       --ion-grid-column-padding: 10px;
